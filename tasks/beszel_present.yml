@@ -5,6 +5,9 @@
     that: beszel_public_key != ""
     fail_msg: Provide a public key to be used by the Beszel binary agent.
 
+- name: beszel_present | Gather package facts
+  ansible.builtin.package_facts:
+
 - name: beszel_present | Determine Beszel binary agent architecture
   ansible.builtin.set_fact:
     beszel_architecture: >-
@@ -42,6 +45,8 @@
   ansible.builtin.user:
     name: "{{ beszel_user }}"
     shell: /sbin/nologin
+    groups: "{{ 'docker' if ansible_facts.packages['docker-ce'] is defined else omit }}"
+    append: true
     state: present
 
 - name: beszel_present | Install Beszel binary agent systemd service
