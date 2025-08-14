@@ -9,7 +9,7 @@ ExecStart={{ beszel_install_dir }}/beszel-agent {{ beszel_args | trim }}
 Environment="PORT={{ beszel_port }}"
 Environment="KEY={{ beszel_hub_public_key }}"
 Environment="TOKEN={{ beszel_hub_token }}"
-Environment="HUB={{ beszel_hub_url }}"
+Environment="HUB_URL={{ beszel_hub_url }}"
 {% if beszel_extra_filesystems %}
 Environment="EXTRA_FILESYSTEMS={{ beszel_extra_filesystems | join(',') }}"
 {% endif %}
