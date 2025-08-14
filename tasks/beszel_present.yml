@@ -1,10 +1,5 @@
 ---
 # present tasks file for dbrennand.beszel
-- name: beszel_present | Assert beszel_public_key is set
-  ansible.builtin.assert:
-    that: beszel_public_key != ""
-    fail_msg: Provide a public key to be used by the Beszel binary agent.
-
 - name: beszel_present | Gather package facts
   ansible.builtin.package_facts:
 
