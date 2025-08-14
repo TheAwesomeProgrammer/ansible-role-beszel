@@ -7,7 +7,7 @@ Wants=network-online.target
 User={{ beszel_user }}
 ExecStart={{ beszel_install_dir }}/beszel-agent {{ beszel_args | trim }}
 Environment="PORT={{ beszel_port }}"
-Environment="TOKEN={{ beszel_hub_token }}"
+Environment="KEY={{ beszel_hub_public_key }}"
 {% if beszel_extra_filesystems %}
 Environment="EXTRA_FILESYSTEMS={{ beszel_extra_filesystems | join(',') }}"
 {% endif %}
